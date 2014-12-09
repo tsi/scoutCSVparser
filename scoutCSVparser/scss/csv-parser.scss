@@ -1,0 +1,29 @@
+
+@import "compass";
+
+.csv-popup {
+  $width: 300px;
+  background: #fff;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  width: $width;
+  margin-left: -0.5 * $width;
+  padding: 20px;
+  @include box-shadow(5px 0px 20px rgba(#000, .3));
+  @include box-sizing(border-box);
+  .close {
+    font-weight: bold;
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  label {
+    display: block;
+    font-size: 26px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+}

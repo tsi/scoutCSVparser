@@ -1,0 +1,34 @@
+{
+  "name": "Scout CSV parser",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "Client-side CSV parser for scout.co.il",
+  "homepage_url": "http://scout.co.il",
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "background": {
+    "scripts": [
+      "js/background.js"
+    ],
+    "persistent": false
+  },
+  "page_action": {
+    "default_icon": "icon19.png",
+    "default_title": "Scout CSV parser"
+  },
+  "permissions": [
+    "tabs",
+    "http://host2.scout.co.il/*",
+    "file:///*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["http://host2.scout.co.il/*"],
+      "js": ["js/inject.js"],
+      "css": ["csv-parser.css"]
+    }
+  ]
+}
