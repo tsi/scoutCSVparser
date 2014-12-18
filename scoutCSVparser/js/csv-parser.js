@@ -52,7 +52,8 @@
       return false;
     }
     var reader = new FileReader();
-    reader.readAsText(file);
+    var encoding = $('input#csv-popup-enc').is(':checked') ? "ISO-8859-8" : "UTF-8";
+    reader.readAsText(file, encoding);
     reader.onload = function(event){
       var csv = event.target.result;
       var data = $.csv.toArrays(csv, options);
@@ -67,12 +68,21 @@
       var csvPopupWrp = $('<div />', {'class': 'csv-popup'})
         .append($('<span />', {'class': 'close'}).text('x').click(hideCSVpopup))
         .append($('<div />', {'class': 'csv-popup-inner'})
-          .append($('<label />').text('Select CSV file'))
+          .append($('<label />', {
+            'for': 'csv-popup-file',
+            'class': 'file-label'
+          }).text('Select CSV file'))
+          .append($('<input />', {
+            'type': 'checkbox',
+            'id': 'csv-popup-enc'
+          }))
+          .append($('<label />', {
+            'for': 'csv-popup-enc'
+          }).text('Windows Hebrew'))
           .append($('<input />', {
             'type': 'file',
             'id': 'csv-popup-file'
-          }))
-          .change(handleCSVfile)
+          }).change(handleCSVfile))
         );
       $('body').append(csvPopupWrp);
     }

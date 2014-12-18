@@ -21,9 +21,12 @@
   font-size: 16px;
   cursor: pointer;
 }
-.csv-popup label {
+.csv-popup label.file-label {
   display: block;
   font-size: 26px;
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+}
+.csv-popup #csv-popup-file {
+  margin-top: 10px;
 }
