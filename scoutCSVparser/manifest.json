@@ -22,11 +22,17 @@
   "permissions": [
     "tabs",
     "http://host2.scout.co.il/*",
+    "http://192.168.1.201/*",
+    "http://10.0.0.251/*",
     "file:///*"
   ],
   "content_scripts": [
     {
-      "matches": ["http://host2.scout.co.il/*"],
+      "matches": [
+        "http://host2.scout.co.il/*",
+        "http://192.168.1.201/*",
+        "http://10.0.0.251/*"
+      ],
       "js": ["js/inject.js"],
       "css": ["csv-parser.css"]
     }
